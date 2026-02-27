@@ -24,6 +24,8 @@ header {
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  position: relative;
 }
 
 .login-input > label {
@@ -37,17 +39,23 @@ header {
   padding: 16px 24px;
   border-radius: 12px;
   border: none;
-  background-color: #f3f4f6;
+  background-color: var(--Secondary-100);
 
   font-size: 16px;
 }
 
 .login-input > input:focus {
-  outline: 1px solid #3692ff;
+  outline: 1px solid var(--Primary-100);
+}
+
+.pw-visibility {
+  position: absolute;
+  right: 35px;
+  bottom: 15px;
 }
 
 .login-link {
-  color: #3692ff;
+  color: var(--Primary-100);
   font-size: 14px;
   text-decoration: underline;
 }
@@ -57,7 +65,7 @@ header {
   height: 42px;
   border-radius: 100%;
   box-sizing: border-box;
-  border: 1px solid #f9fafb;
+  border: 1px solid var(--Secondary-50);
   background-color: #fff;
 }
 
@@ -89,7 +97,7 @@ header {
 }
 
 #login-footer > span {
-  color: #1f2937;
+  color: var(--Secondary-800);
 }
 
 .login-s-box {
@@ -106,5 +114,8 @@ header {
 }
 
 .login-footer {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 }
