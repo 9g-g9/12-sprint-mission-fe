@@ -7,11 +7,15 @@
   flex-direction: column;
 }
 
-header {
+/* 내부 */
+
+.login-header {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+/* form */
 
 .login-wrap,
 .login-form {
@@ -96,10 +100,6 @@ header {
   top: 0;
 }
 
-#login-footer > span {
-  color: var(--Secondary-800);
-}
-
 .login-s-box {
   display: flex;
   align-items: center;
@@ -111,6 +111,12 @@ header {
 
   border-radius: 8px;
   background: #e6f2ff;
+}
+
+/* footer */
+
+#login-footer > span {
+  color: var(--Secondary-800);
 }
 
 .login-footer {
