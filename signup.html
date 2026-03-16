@@ -48,6 +48,7 @@
               placeholder="이메일을 입력해주세요"
               required
             />
+            <p class="form-velify"></p>
           </div>
           <div class="form-filed">
             <label for="login-nikname">닉네임</label>
@@ -70,6 +71,7 @@
               placeholder="비밀번호를 입력해주세요"
               required
             />
+            <p class="form-velify"></p>
             <p class="form-filed-action pw-visibility" id="pw-visibility"></p>
           </div>
           <div class="form-filed">
@@ -82,13 +84,14 @@
               placeholder="비밀번호를 다시 한 번 입력해주세요"
               required
             />
+            <p class="form-velify"></p>
             <p
               class="form-filed-action pw-visibility"
               id="pw-check-visibility"
             ></p>
           </div>
+          <button class="btn btn-login deactive">회원가입</button>
         </form>
-        <button class="btn btn-login deactive">회원가입</button>
         <section class="login-s-box">
           <p>간편 로그인하기</p>
           <div class="login-s-btns">
@@ -119,8 +122,13 @@
       </main>
     </div>
     <!-- modal -->
-    <div>
-      <div></div>
+    <div class="modal-container" id="modal">
+      <div class="modal-box">
+        <p id="modal-msg"></p>
+        <div class="modal-btn-box">
+          <button class="btn btn-small" id="modal-btn">확인</button>
+        </div>
+      </div>
     </div>
   </body>
 </html>

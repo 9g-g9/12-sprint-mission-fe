@@ -13,10 +13,6 @@ import {
   deleteArticle,
 } from "./articleService.js";
 
-import { modalClose } from "./modal.js";
-
-const modalBtn = document.querySelector("#modal-btn");
-
 async function init() {
   const products = await getProductList(1, 10, "");
   const product = await getProduct(2988);
@@ -32,9 +28,4 @@ async function init() {
 }
 
 // api 연결 임시 확인용
-// init();
-
-// modal 확인 클릭 시 close
-modalBtn.addEventListener("click", () => {
-  modalClose();
-});
+init();

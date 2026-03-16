@@ -160,6 +160,7 @@ body {
   color: var(--Secondary-200);
 }
 
+/* table & mobile 공통 */
 @media (max-width: 1199px) {
   .hero-container {
     flex-direction: column;
@@ -195,6 +196,10 @@ body {
 
   .hero-wrap.bottom {
     margin: 0;
+  }
+
+  .media-hide {
+    display: none;
   }
 }
 
@@ -260,5 +265,9 @@ body {
 
   .info-title {
     padding: 8px 0 16px 0;
+  }
+
+  .info-contents {
+    width: 100%;
   }
 }
