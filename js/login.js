@@ -3,12 +3,14 @@ import {
   togglePWVisible,
   loginIdCheck,
   loginPwCheck,
-} from "./loginSignup.js";
+} from "./formCheck.js";
 
 const loginIdInput = document.querySelector("#login-id");
 const loginPwInput = document.querySelector("#login-pw");
-const loginForm = document.querySelector("#login-form");
+
 const pwVisible = document.querySelector("#pw-visibility");
+
+const loginForm = document.querySelector("#login-form");
 
 // focus out 시 validate 검사
 loginIdInput.addEventListener("focusout", (e) => {
@@ -16,7 +18,7 @@ loginIdInput.addEventListener("focusout", (e) => {
 });
 
 loginPwInput.addEventListener("focusout", (e) => {
-  loginPwCheck(e.target);
+  loginPwCheck(e.target, false);
 });
 
 // submit

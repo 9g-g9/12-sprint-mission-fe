@@ -148,6 +148,8 @@
 .form-velify {
   display: block;
   color: var(--error-red);
+  font-weight: 600;
+  padding: 0 16px;
 }
 
 .modal-container {
@@ -173,13 +175,8 @@
 }
 
 .modal-btn-box {
-  width: 100%;
-  position: relative;
-}
-
-.modal-btn-box > button {
-  position: absolute;
-  right: 0;
+  display: flex;
+  justify-content: flex-end;
 }
 
 #modal-msg {
@@ -209,5 +206,16 @@
 
   .login-header img {
     content: url(/assets/imgs/logo/logo_login_s.png);
+  }
+
+  .modal-box {
+    width: 100%;
+    max-width: 540px;
+    margin: 24px;
+    padding: 24px;
+  }
+
+  .modal-btn-box {
+    justify-content: center;
   }
 }

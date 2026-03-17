@@ -10,7 +10,6 @@ const USER_DATA = [
 import { modalWindow, modalClose } from "./modal.js";
 
 const loginBtn = document.querySelector(".btn-login");
-const modalBtn = document.querySelector("#modal-btn");
 
 let isLoginId = false;
 let isLoginPw = false;
@@ -18,7 +17,7 @@ let isLoginPwCheck = true;
 
 // submit
 export const handleSubmit = (email, pw) => {
-  if (!isLoginId || !isLoginPw) return;
+  if (!isLoginId || !isLoginPw || !isLoginPwCheck) return;
 
   const isUser = USER_DATA.findIndex((user) => {
     return user.email === email && user.password === pw;
@@ -30,7 +29,7 @@ export const handleSubmit = (email, pw) => {
 };
 
 export const handleSignUp = (email) => {
-  if (!isLoginId || !isLoginPw) return;
+  if (!isLoginId || !isLoginPw || !isLoginPwCheck) return;
 
   const isUser = USER_DATA.findIndex((user) => {
     return user.email === email;
@@ -61,9 +60,11 @@ export function loginIdCheck(input) {
 }
 
 // login pw check
-export function loginPwCheck(input) {
+export function loginPwCheck(input, ischeck) {
   const pw = input.value;
   const velify = input.nextElementSibling;
+
+  ischeck ? (isLoginPwCheck = false) : (isLoginPwCheck = true);
 
   if (pw === "") {
     isLoginPw = false;
@@ -83,7 +84,10 @@ export function loginPwDoubleCheck(input, pwCheck) {
   const pw = input.value;
   const velify = input.nextElementSibling;
 
-  if (pw !== pwCheck) {
+  if (pw === "") {
+    isLoginPwCheck = false;
+    validationCheck("비밀번호를 다시 입력해주세요.", input, velify);
+  } else if (pw !== pwCheck) {
     isLoginPwCheck = false;
     validationCheck("비밀번호가 일치하지 않습니다.", input, velify);
   } else {
@@ -104,7 +108,7 @@ export const togglePWVisible = (input, visible) => {
 };
 
 // login id pw check
-export function validationCheck(msg, ele, velify) {
+function validationCheck(msg, ele, velify) {
   loginBtn.classList = "btn btn-login deactive";
 
   velify.style.display = "block";
@@ -112,12 +116,7 @@ export function validationCheck(msg, ele, velify) {
   ele.classList = "form-filed-control error";
 }
 
-export function validationComplete(ele, velify) {
+function validationComplete(ele, velify) {
   velify.style.display = "none";
   ele.classList = "form-filed-control";
 }
-
-// modal 확인 클릭 시 close
-modalBtn.addEventListener("click", () => {
-  modalClose();
-});

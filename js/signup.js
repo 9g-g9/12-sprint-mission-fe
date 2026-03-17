@@ -4,10 +4,12 @@ import {
   loginIdCheck,
   loginPwCheck,
   loginPwDoubleCheck,
-} from "./loginSignup.js";
+} from "./formCheck.js";
+
 const loginIdInput = document.querySelector("#login-id");
 const loginPwInput = document.querySelector("#login-pw");
 const loginPwCheckInput = document.querySelector("#login-pw-check");
+
 const pwVisible = document.querySelector("#pw-visibility");
 const pwCheckVisible = document.querySelector("#pw-check-visibility");
 
@@ -19,7 +21,7 @@ loginIdInput.addEventListener("focusout", (e) => {
 });
 
 loginPwInput.addEventListener("focusout", (e) => {
-  loginPwCheck(e.target);
+  loginPwCheck(e.target, true);
 });
 
 loginPwCheckInput.addEventListener("focusout", (e) => {

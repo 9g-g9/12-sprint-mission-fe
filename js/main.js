@@ -14,13 +14,13 @@ import {
 } from "./articleService.js";
 
 async function init() {
-  const products = await getProductList(1, 10, "");
+  const products = await getProductList(1, 10, "테스트");
   const product = await getProduct(2988);
 
   console.log("getProductList => ", products);
   console.log("getProduct => ", product);
 
-  const articles = await getArticleList(1, 10, "");
+  const articles = await getArticleList(1, 10, "테스트");
   const article = await getArticle(5550);
 
   console.log("getArticleList => ", articles);

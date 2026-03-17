@@ -38,11 +38,11 @@ export async function patchProduct(product, id) {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        name: "타이틀",
-        description: "상품 내용",
+        name: "타이틀 patch",
+        description: "상품 내용 patch",
         images: ["https://example.com/img.jpg"],
         price: 1000,
-        tags: ["태그1"],
+        tags: ["태그1 patch"],
       }),
     });
   } catch {
