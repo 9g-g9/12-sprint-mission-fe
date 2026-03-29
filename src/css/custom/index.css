@@ -322,14 +322,6 @@ body {
   .media-hide {
     display: none;
   }
-
-  .product-box {
-    padding: 26px;
-  }
-
-  .product-container {
-    width: 100%;
-  }
 }
 
 @media (min-width: 744px) and (max-width: 1199px) {
@@ -354,8 +346,11 @@ body {
   }
 
   .product-list {
-    justify-content: center;
     column-gap: 16px;
+  }
+
+  .product-container {
+    width: 695px;
   }
 }
 
@@ -409,8 +404,11 @@ body {
     width: 100%;
   }
 
+  .product-container {
+    width: 454px;
+  }
+
   .product-list {
-    justify-content: center;
     column-gap: 8px;
   }
 
