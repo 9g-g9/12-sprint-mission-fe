@@ -3,13 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import defaultImg from "../../assets/imgs/img_default.png";
 
-const ProductsItem = (props) => {
-  const { product } = props;
+const ProductsItem = ({ product }) => {
   const imgSrc = product.images.length !== 0 ? product.images[0] : defaultImg;
+
+  const handleImgError = (e) => {
+    e.target.src = defaultImg;
+  };
 
   return (
     <>
-      <img src={imgSrc} alt={product.name} />
+      <img src={imgSrc} alt={product.name} onError={handleImgError} />
       <div className="product-i-desc">
         <p className="product-i-title">{product.name}</p>
         <p className="product-i-price">
