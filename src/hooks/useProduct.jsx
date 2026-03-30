@@ -75,7 +75,6 @@ const useProduct = () => {
   //  기본 product
   useEffect(() => {
     getProductsList();
-    console.log();
   }, [page, limit, orderBy, keyword, isMobile, isTablet]);
 
   return {

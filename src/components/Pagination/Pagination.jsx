@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from "react";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Pagination = ({ total, limit, page, setPage }) => {
   const totalPages = Math.ceil(total / limit);
   const [start, setStart] = useState(1);
   const [curPage, setCurPage] = useState(page);
+  const [isPrev, setIsPrev] = useState(false);
+  const [isNext, setIsNext] = useState(true);
+
   const pageLength =
     totalPages < 5 ? (totalPages <= 1 ? 1 : totalPages - 1) : 5;
 
   useEffect(() => {
     if (curPage === start + pageLength) setStart((prev) => prev + pageLength);
     if (curPage < start) setStart((prev) => prev - pageLength);
+
+    curPage === 1 ? setIsPrev(false) : setIsPrev(true);
+    curPage === totalPages ? setIsNext(false) : setIsNext(true);
+
+    if (page === 1) {
+      setStart(page);
+      setCurPage(page);
+    }
   }, [curPage, pageLength, start]);
 
   const handlePrevPage = () => {
@@ -33,12 +46,12 @@ const Pagination = ({ total, limit, page, setPage }) => {
     <>
       <div className="pagination">
         <button
-          className="page"
+          className={!isPrev ? "page unactive" : "page"}
           onClick={() => {
             handlePrevPage();
           }}
         >
-          &lt;
+          <FontAwesomeIcon icon={faAngleLeft} />
         </button>
 
         {Array(pageLength)
@@ -46,10 +59,9 @@ const Pagination = ({ total, limit, page, setPage }) => {
           .map((v, i) => {
             const p = i + start;
             return (
-              <>
+              <React.Fragment key={`page-${p}`}>
                 {start + i <= totalPages && (
                   <button
-                    key={`page-${p}`}
                     onClick={() => {
                       handleCurPage(p);
                     }}
@@ -58,17 +70,17 @@ const Pagination = ({ total, limit, page, setPage }) => {
                     {p}
                   </button>
                 )}
-              </>
+              </React.Fragment>
             );
           })}
 
         <button
-          className="page"
+          className={!isNext ? "page unactive" : "page"}
           onClick={() => {
             handleNextPage();
           }}
         >
-          &gt;
+          <FontAwesomeIcon icon={faAngleRight} />
         </button>
       </div>
     </>

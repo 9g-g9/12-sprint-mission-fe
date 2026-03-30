@@ -10,6 +10,7 @@ const SearchBar = ({ title, onChange, onSearch }) => {
           <h3 className="product-title">{title}</h3>
           <div className="search-box">
             <input
+              id="search-input-pc"
               className="search-input"
               type="text"
               placeholder="검색할 상품을 입력해주세요."
@@ -37,6 +38,7 @@ const SearchBar = ({ title, onChange, onSearch }) => {
           </div>
           <div className="search-box">
             <input
+              id="search-input-mobile"
               className="search-input"
               type="text"
               placeholder="검색할 상품을 입력해주세요."
